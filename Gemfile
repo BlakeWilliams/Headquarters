@@ -12,12 +12,11 @@ gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta1'
   gem 'factory_girl_rails', '~> 4.3.0'
-  gem 'qunit-rails'
 end
 
 group :test do
-  gem 'mocha', '~> 0.14.0'
   gem 'simplecov', '0.8.2', require: false
 end
 
