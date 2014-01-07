@@ -1,0 +1,18 @@
+<form id="login" {{action login on="submit"}}>
+  <h1>Headquarters</h1>
+  {{#if error}}
+      <div class="error">{{error}}</div>
+  {{/if}}
+
+  <div class="field">
+    {{view Ember.TextField value=email name="email" placeholder="Email Address"}}
+  </div>
+
+  <div class="field">
+    {{view Ember.TextField value=password name="password" placeholder="Password" type="password"}}
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="Login" class="btn blue"/>
+  </div>
+</form>

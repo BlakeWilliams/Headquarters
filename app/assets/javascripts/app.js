@@ -1,3 +1,4 @@
+//= require_self
 //= require ./store
 //= require_tree ./mixins
 //= require_tree ./models
@@ -8,4 +9,18 @@
 //= require_tree ./templates
 //= require ./router
 //= require_tree ./routes
-//= require_self
+
+App = Ember.Application.create({
+  apiPath: 'api/v1',
+
+  setToken: function(token) {
+    var adapter = this.__container__.lookup('store:main').adapterFor('application')
+
+    adapter.headers['App-Token'] = token;
+    this.set('token', token);
+    this.get('storage').token = token;
+  },
+});
+
+App.set('storage', localStorage);
+App.set('token', App.get('storage').token);
