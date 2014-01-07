@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/pivotal/jasmine-gem.git
+  revision: 5f334f18d536abcbea4d500a3da46f41c3e60a21
+  specs:
+    jasmine (2.0.0)
+      jasmine-core (~> 2.0.0)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -62,6 +72,7 @@ GEM
     handlebars-source (1.1.2)
     hike (1.2.3)
     i18n (0.6.9)
+    jasmine-core (2.0.0)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -72,6 +83,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.2.0)
     multi_json (1.8.2)
+    phantomjs (1.9.2.1)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -153,6 +165,7 @@ DEPENDENCIES
   ember-data-source (~> 1.0.0.beta4)
   ember-rails (~> 0.14.1)
   factory_girl_rails (~> 4.3.0)
+  jasmine!
   jquery-rails
   rails (= 4.1.0.beta1)
   rspec-rails (~> 3.0.0.beta1)

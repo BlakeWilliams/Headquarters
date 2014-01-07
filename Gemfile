@@ -12,8 +12,9 @@ gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta1'
+  gem 'jasmine', github: 'pivotal/jasmine-gem'
   gem 'factory_girl_rails', '~> 4.3.0'
+  gem 'rspec-rails', '~> 3.0.0.beta1'
 end
 
 group :test do
