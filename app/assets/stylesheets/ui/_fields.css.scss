@@ -1,0 +1,65 @@
+textarea,
+input[type="text"],
+input[type="password"] {
+  $border-color: #dfdfdf;
+
+  border: 1px solid $border-color;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px;
+  width: 425px;
+
+  -webkit-transition: border-color 0.1s;
+  border-radius: 3px;
+
+  &:focus {
+    border-color: #afafaf;
+    outline: none;
+
+  }
+
+  &.error {
+    textarea,
+    input[type="text"] {
+      border: #e74c3c !important;
+    }
+  }
+
+  &.borderless {
+  }
+}
+
+textarea {
+  height: 65px;
+  line-height: 1.3;
+}
+
+input[type="submit"] {
+  outline: none;
+}
+
+.field {
+  margin-bottom: 10px;
+
+  &.error {
+    textarea,
+    input[type="text"] {
+      border-color: #e74c3c !important;
+    }
+  }
+}
+
+form {
+  .actions {
+    margin-top: -10px;
+
+    .cancel {
+      color: #aaa;
+      cursor: pointer;
+      font-size: 12px;
+      margin-left: 10px;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+$margin: 10px;
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: inherit;
+  font-weight: normal;
+  line-height: 1.2;
+  margin: $margin 0;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+p {
+  line-height: 1.3;
+}

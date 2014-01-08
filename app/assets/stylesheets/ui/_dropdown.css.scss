@@ -1,0 +1,26 @@
+.dropdown {
+  background: #fff;
+  margin-top: 2px;
+  padding: 10px 0;
+  position: absolute;
+
+  z-index: 40;
+  border: 1px solid #ddd;
+
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+
+  .dropdown-body {
+    padding: 0 10px;
+
+    p {
+      i {
+        color: #222;
+      }
+      color: #444;
+    }
+  }
+}

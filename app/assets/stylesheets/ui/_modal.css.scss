@@ -1,0 +1,68 @@
+.modal {
+  background: #fff;
+  border: 1px solid #eee;
+  position: fixed;
+  left: 50%;
+  top: 15%;
+  margin-left: -290px;
+  padding: 20px 25px;
+  width: 580px;
+  z-index: 1000;
+
+  .header {
+    h3 {
+      margin-top: 0;
+      float: left;
+    }
+
+    .close {
+      cursor: pointer;
+      color: #cfcfcf;
+      float: right;
+      margin-top: 3px;
+
+      &:hover {
+        color: #777;
+      }
+    }
+  }
+
+  .body {
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+    }
+
+    textarea {
+      width: 100%;
+    }
+
+    .actions {
+      float: right;
+
+      a:not(.btn) {
+        $color: #999;
+
+        margin-right: 10px;
+        color: $color;
+
+        &:hover {
+          color: darken($color, 8);
+        }
+      }
+    }
+  }
+}
+
+.modal-backdrop {
+  background-color: #000000;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 990;
+
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}

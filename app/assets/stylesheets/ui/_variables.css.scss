@@ -1,0 +1,21 @@
+$text-color: #383838 !default;
+
+$black:   #4e4e4e !default;
+$blue:    #70bbe5 !default;
+$green:   #7cc67c !default;
+$orange:  #fdad77 !default;
+$purple:  #9258e2 !default;
+$red:     #dc6b6b !default;
+$yellow:  #f3be74 !default;
+
+
+@mixin box {
+  border-radius: 5px;
+  box-shadow: 0 1px 4px 1px rgba(0,0,0, 0.1);
+}
+
+@mixin type-omega($rows) {
+  &:nth-of-type(#{$rows}) {
+    margin-right: 0;
+  }
+}

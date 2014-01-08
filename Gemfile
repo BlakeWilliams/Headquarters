@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'bourbon'
+gem 'font-awesome-rails'
+gem 'neat'
+
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'ember-data-source', '~> 1.0.0.beta4'
