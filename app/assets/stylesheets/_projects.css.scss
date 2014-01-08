@@ -1,0 +1,14 @@
+#projects {
+  @include row;
+
+  .project {
+    @include type-omega(4n);
+    @include pad(15px);
+    @include span-columns(3);
+
+    background: #fff;
+    border-radius: 2px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+}
