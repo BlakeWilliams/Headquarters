@@ -2,8 +2,8 @@
   <h1>Your Projects</h1>
 
   {{#each project in controller}}
-    <div class="project">
+    {{#link-to "project" project class="project"}}
       {{project.name}}
-    </div>
+    {{/link-to}}
   {{/each}}
 </div>
