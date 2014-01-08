@@ -11,10 +11,13 @@ App.Store = DS.Store.extend({
   }),
 });
 
-beforeEach(function() {
+beforeEach(function(done) {
   App.reset();
 
   App.set('storage', {});
   App.set('token', undefined);
+  Ember.run.next(function() {
+    done();
+  });
 });
 

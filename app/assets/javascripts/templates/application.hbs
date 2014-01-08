@@ -1,2 +1,11 @@
-<h1>Headquarters</h1>
-{{outlet}}
+{{#unless loginLayout}}
+  <header>
+    <div class="container">
+      <h1>Headquarters</h1>
+    </div>
+  </header>
+{{/unless}}
+
+<div class="container">
+  {{outlet}}
+</div>
