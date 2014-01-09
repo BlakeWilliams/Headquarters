@@ -1,4 +1,6 @@
-class Api::V1::SessionsController < ApplicationController
+class Api::V1::SessionsController < ApiController
+  skip_before_action :check_token
+
   def create
     email = params[:email]
     password = params[:password]

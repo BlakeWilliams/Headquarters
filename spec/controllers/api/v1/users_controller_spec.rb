@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Api::V1::UsersController do
+  before { login_user }
+
   describe 'GET #show' do
     let(:user) { FactoryGirl.create(:user) }
 

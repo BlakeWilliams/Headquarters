@@ -1,6 +1,6 @@
 module LoginHelper
   def login_user(user=FactoryGirl.create(:user))
-    @request.headers['app-token'] = user.token
+    @request.headers['App-Token'] = user.token
     user
   end
 end

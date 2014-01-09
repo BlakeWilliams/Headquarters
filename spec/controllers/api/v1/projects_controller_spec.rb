@@ -13,7 +13,14 @@ describe Api::V1::ProjectsController do
       3.times { FactoryGirl.create(:project, user: user) }
 
       get :index
-      expect(assigns(:projects)).to eq(Project.all)
+      expect(assigns(:projects)).to eq(user.projects)
+    end
+
+    it 'does not assign projects not owned by user' do
+      project = FactoryGirl.create(:project)
+
+      get :index
+      expect(assigns(:projects)).not_to include(project)
     end
   end
 

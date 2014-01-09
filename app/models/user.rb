@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password validates: false
 
+  has_many :projects
+
   validates :name, presence: true, if: -> { name_changed? }
   validates :password, presence: true, if: -> { password.present? }
 
