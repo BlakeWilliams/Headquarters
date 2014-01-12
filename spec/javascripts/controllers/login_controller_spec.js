@@ -10,19 +10,16 @@ describe('App.LoginController', function() {
     server.restore();
   });
 
-  it('sets app token on login', function(done) {
-    Ember.run(function() {
-      controller.send('login');
+  it('sets app token on login', function() {
+    controller.send('login');
 
-      server.requests[0].respond(200, {
-        'Content-Type': 'application/json',
-      }, JSON.stringify({
+    server.requests[0].respond(200, {
+      'Content-Type': 'application/json',
+    }, JSON.stringify({
 
-        token: 'testtoken',
-      }));
+      token: 'testtoken',
+    }));
 
-      expect(App.get('token')).toBe('testtoken');
-      done();
-    });
+    expect(App.get('token')).toBe('testtoken');
   });
 });

@@ -38,3 +38,7 @@ header {
   @include outer-container;
   @include pad(0 10px);
 }
+
+a {
+  cursor: pointer;
+}

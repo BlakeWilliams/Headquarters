@@ -37,4 +37,42 @@ describe Api::V1::ProjectsController do
       expect(assigns(:project)).to eq(project)
     end
   end
+
+  describe 'POST #create' do
+    context 'with valid credentials' do
+      it 'responds successfully' do
+        post :create, project: FactoryGirl.attributes_for(:project)
+        expect(response).to be_success
+      end
+j
+      it 'creates the project' do
+        expect{
+          post :create, project: FactoryGirl.attributes_for(:project)
+        }.to change{Project.count}.by(1)
+      end
+
+      it 'assigns a user' do
+        post :create, project: FactoryGirl.attributes_for(:project)
+        expect(Project.last.user).not_to be_nil
+      end
+    end
+
+    context 'with invalid credentials' do
+      it 'responds with 422' do
+        post :create, project: { name: '', description: '' }
+        expect(response.status).to be(422)
+      end
+
+      it 'renders error json' do
+        post :create, project: { name: '', description: '' }
+        expect(json['errors']).not_to be_nil
+      end
+
+      it 'does not create the project' do
+        expect{
+          post :create, project: { name: '', description: '' }
+        }.not_to change{Project.count}.by(1)
+      end
+    end
+  end
 end

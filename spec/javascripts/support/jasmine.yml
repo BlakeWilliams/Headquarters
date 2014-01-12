@@ -26,7 +26,7 @@ src_files:
 #   - stylesheets/*.css
 #
 stylesheets:
-  - stylesheets/**/*.css
+  - assets/application.css
 
 # helpers
 #
@@ -39,6 +39,7 @@ stylesheets:
 #   - helpers/**/*.js
 #
 helpers:
+  - 'fixtures/**/*.js'
   - 'helpers/**/*.js'
 
 # spec_files

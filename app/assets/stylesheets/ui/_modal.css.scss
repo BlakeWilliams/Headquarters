@@ -3,7 +3,7 @@
   border: 1px solid #eee;
   position: fixed;
   left: 50%;
-  top: 15%;
+  top: 13%;
   margin-left: -290px;
   padding: 20px 25px;
   width: 580px;
@@ -43,12 +43,17 @@
       a:not(.btn) {
         $color: #999;
 
-        margin-right: 10px;
         color: $color;
+        font-size: 15px;
+        margin-right: 10px;
 
         &:hover {
           color: darken($color, 8);
         }
+      }
+
+      .btn {
+        margin-top: 0;
       }
     }
   }

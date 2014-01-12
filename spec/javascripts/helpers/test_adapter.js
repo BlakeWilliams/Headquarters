@@ -10,4 +10,4 @@ Ember.Test.JasmineAdapter = Ember.Test.Adapter.extend({
 });
 
 //Ember.Test.adapter = Ember.Test.JasmineAdapter.create();
-Ember.Test.adapter = Ember.Test.Adapter.create();
+Ember.Test.adapter = Ember.Test.JasmineAdapter.create();

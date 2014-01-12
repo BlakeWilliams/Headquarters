@@ -1,6 +1,18 @@
 #projects {
   @include row;
 
+  .actions {
+    overflow: hidden;
+
+    h1 {
+      float: left;
+    }
+
+    a {
+      float: right;
+    }
+  }
+
   .project {
     @include type-omega(4n);
     @include pad(15px);

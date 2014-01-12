@@ -1,0 +1,16 @@
+{{#app-modal title="New Project"}}
+  <div class="form">
+    <div class="field">
+      {{view Ember.TextField value=name placeholder="Project title" class="title"}}
+    </div>
+
+    <div class="field">
+      {{view Ember.TextArea value=description placeholder="Project description" class="description"}}
+    </div>
+
+    <div class="actions">
+      <a {{action "cancel"}}>cancel</a>
+      <a {{action "save"}} class="btn blue" id="save">Save Project</a>
+    </div>
+  </div>
+{{/app-modal}}

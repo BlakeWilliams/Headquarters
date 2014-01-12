@@ -1,5 +1,8 @@
 <div id="projects">
-  <h1>Your Projects</h1>
+  <div class="actions">
+    <h1>Your Projects</h1>
+    {{link-to "New Project" "projects.new" class="btn blue" id="new-project"}}
+  </div>
 
   {{#each project in controller}}
     {{#link-to "project" project class="project"}}
@@ -7,3 +10,5 @@
     {{/link-to}}
   {{/each}}
 </div>
+
+{{outlet}}
