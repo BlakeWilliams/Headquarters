@@ -1,6 +1,7 @@
 <div class="modal">
   <div class="header">
     <h3>{{title}}</h3>
+    <div {{action "close"}} class="close"><i class="fa fa-times"></i></div>
   </div>
 
   <div class="body">
@@ -8,4 +9,4 @@
   </div>
 </div>
 
-<div class="modal-backdrop"></div>
+<div {{action "close"}} class="modal-backdrop"></div>
