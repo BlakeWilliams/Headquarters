@@ -25,6 +25,16 @@ header {
       text-decoration: none;
     }
   }
+
+  nav {
+    float: right;
+
+    img {
+      border-radius: 50%;
+      height: 40px;
+      margin-top: 6px;
+    }
+  }
 }
 
 #navigation {

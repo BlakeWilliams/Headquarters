@@ -15,5 +15,15 @@ describe Api::V1::UsersController do
       get :show, id: user.id
       expect(assigns(:user)).to eq user
     end
+
+    context 'when id is me' do
+      let!(:user) { login_user }
+
+      it 'returns the current user' do
+        get :show, id: 'me'
+        expect(assigns(:user)).to eq user
+      end
+    end
+
   end
 end

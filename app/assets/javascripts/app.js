@@ -22,5 +22,12 @@ App = Ember.Application.create({
   },
 });
 
+App.reopen({
+  currentUser: function() {
+    var store = this.__container__.lookup('store:main');
+    return store.find('user', 'me');
+  }.property()
+});
+
 App.set('storage', localStorage);
 App.set('token', App.get('storage').token);
