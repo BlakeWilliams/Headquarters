@@ -15,7 +15,6 @@ App.ProjectsNewController = Ember.Controller.extend({
     },
 
     cancel: function() {
-      console.log('hit');
       this.setProperties({
         name: '',
         description: '',
