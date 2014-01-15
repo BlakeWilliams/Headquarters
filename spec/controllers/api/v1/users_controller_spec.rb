@@ -4,7 +4,7 @@ describe Api::V1::UsersController do
   before { login_user }
 
   describe 'GET #show' do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { create(:user) }
 
     it 'returns success' do
       get :show, id: user.id

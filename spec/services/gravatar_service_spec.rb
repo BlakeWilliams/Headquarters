@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe GravatarService do
   describe '#url' do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { create(:user) }
     let(:gravatar) { GravatarService.new(user) }
     let(:gravatar_url) { 'http://www.gravatar.com/avatar/' }
 

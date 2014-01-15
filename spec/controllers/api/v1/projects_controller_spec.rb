@@ -10,14 +10,14 @@ describe Api::V1::ProjectsController do
     end
 
     it 'assigns users projects' do
-      3.times { FactoryGirl.create(:project, user: user) }
+      3.times { create(:project, user: user) }
 
       get :index
       expect(assigns(:projects)).to eq(user.projects)
     end
 
     it 'does not assign projects not owned by user' do
-      project = FactoryGirl.create(:project)
+      project = create(:project)
 
       get :index
       expect(assigns(:projects)).not_to include(project)
@@ -25,7 +25,7 @@ describe Api::V1::ProjectsController do
   end
 
   describe 'GET #show' do
-    let(:project) { FactoryGirl.create(:project, user: user) }
+    let(:project) { create(:project, user: user) }
 
     it 'responds successfully' do
       get :show, id: project.id
@@ -41,18 +41,18 @@ describe Api::V1::ProjectsController do
   describe 'POST #create' do
     context 'with valid credentials' do
       it 'responds successfully' do
-        post :create, project: FactoryGirl.attributes_for(:project)
+        post :create, project: attributes_for(:project)
         expect(response).to be_success
       end
 j
       it 'creates the project' do
         expect{
-          post :create, project: FactoryGirl.attributes_for(:project)
+          post :create, project: attributes_for(:project)
         }.to change{Project.count}.by(1)
       end
 
       it 'assigns a user' do
-        post :create, project: FactoryGirl.attributes_for(:project)
+        post :create, project: attributes_for(:project)
         expect(Project.last.user).not_to be_nil
       end
     end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Api::V1::SessionsController do
-  let(:user) { FactoryGirl.create(:user, password: 'password') }
+  let(:user) { create(:user, password: 'password') }
 
   context "with valid credentials" do
     before do
