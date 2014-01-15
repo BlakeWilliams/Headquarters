@@ -1,24 +1,19 @@
 describe('App.LoginController', function() {
-  var server;
-  var controller = App.__container__.lookup('controller:login');
-
+  var server, controller;
+  
   beforeEach(function() {
-    server = sinon.fakeServer.create();
-  });
-
-  afterEach(function() {
-    server.restore();
+    controller = App.LoginController.create();
   });
 
   it('sets app token on login', function() {
+    var response =  {
+      then: function(cb) {
+        cb.call(this, { token: 'testtoken' });
+      }
+    }
+    spyOn($, 'ajax').and.returnValue(response);
+
     controller.send('login');
-
-    server.requests[0].respond(200, {
-      'Content-Type': 'application/json',
-    }, JSON.stringify({
-
-      token: 'testtoken',
-    }));
 
     expect(App.get('token')).toBe('testtoken');
   });

@@ -1,20 +1,25 @@
 describe('App.LoginRoute', function() {
-  var controller;
+  var controller, route;
 
   beforeEach(function() {
-    container = App.__container__;
-    controller = container.lookup('controller:application');
-    route = container.lookup('route:login');
+    controller = jasmine.createSpyObj('controller', ['set']);
+
+    route = App.LoginRoute.create();
+    spyOn(route, 'controllerFor').and.returnValue(controller);
+  });
+
+  it("calls controllerFor with application", function() {
+    route.activate();
+    expect(route.controllerFor).toHaveBeenCalledWith('application');
   });
 
   it("sets loginLayout on applicationController on activate", function() {
     route.activate(); 
-    expect(controller.get('loginLayout')).toBe(true);
+    expect(controller.set).toHaveBeenCalledWith('loginLayout', true);
   });
 
   it("unsets loginLayout on applicationController on deactivate", function() {
-    route.activate(); 
     route.deactivate();
-    expect(controller.get('loginLayout')).toBe(false);
+    expect(controller.set).toHaveBeenCalledWith('loginLayout', false);
   });
 });

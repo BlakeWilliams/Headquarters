@@ -14,5 +14,8 @@ App.Store = DS.Store.extend({
 beforeEach(function() {
   App.set('storage', {});
   App.set('token', undefined);
+  Ember.run(function() {
+    App.reset();
+  });
 });
 

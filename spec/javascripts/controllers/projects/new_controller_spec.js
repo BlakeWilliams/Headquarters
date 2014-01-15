@@ -1,22 +1,39 @@
 describe('App.ProjectsNewController', function() {
-  var record, controller, store;
   var controller;
-  var store;
 
   beforeEach(function() {
-    store = App.__container__.lookup('store:main');
-    controller = App.__container__.lookup('controller:projects.new');
-
-    record = jasmine.createSpyObj('store', ['one', 'save']);
-    spyOn(store, 'createRecord').and.returnValue(record);
+    controller = App.ProjectsNewController.create();
   });
 
   describe('#save', function() {
+    var store, record;
+
+    beforeEach(function() {
+      store = {
+        createRecord: function() {},
+      }
+      record = jasmine.createSpyObj('record', ['one', 'save']);
+      spyOn(store, 'createRecord').and.returnValue(record);
+      controller.set('store', store);
+    });
+
     it('saves the project', function() {
       controller.send('save');
 
       expect(record.save).toHaveBeenCalled();
       expect(record.one).toHaveBeenCalled();
+    });
+
+    it('creates the record with the right properties', function() {
+      properties = {
+        name: 'test',
+        description: 'test desc',
+      }
+
+      controller.setProperties(properties);
+      controller.send('save');
+
+      expect(store.createRecord).toHaveBeenCalledWith('project', properties);
     });
   });
 

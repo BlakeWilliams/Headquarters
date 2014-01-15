@@ -2,7 +2,7 @@ describe('User creates a project', function() {
   var store;
 
   beforeEach(function(done) {
-    store = App.__container__.lookup('store:main');
+    store = App.Store.create();
     App.reset();
 
     Ember.run.next(function() {
