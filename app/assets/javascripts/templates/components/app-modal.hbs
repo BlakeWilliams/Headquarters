@@ -1,11 +1,13 @@
-<div class="modal">
-  <div class="header">
-    <h3>{{title}}</h3>
-    <div {{action "close"}} class="close"><i class="fa fa-times"></i></div>
-  </div>
+<div class="modal-wrapper">
+  <div class="modal">
+    <div class="header">
+      <h3>{{title}}</h3>
+      <div {{action "close"}} class="close"><i class="fa fa-times"></i></div>
+    </div>
 
-  <div class="body">
-    {{yield}}
+    <div class="body">
+      {{yield}}
+    </div>
   </div>
 </div>
 

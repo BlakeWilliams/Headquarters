@@ -1,3 +1,6 @@
+$margin-bottom: 10px;
+$padding: 15px;
+
 #projects {
   @include row;
 
@@ -6,10 +9,22 @@
 
     h1 {
       float: left;
+
+      @include media($portrait) {
+        float: none;
+        margin-bottom: 0;
+      }
     }
 
     a {
       float: right;
+
+      @include media($portrait) {
+        float: none;
+        margin-bottom: $margin-bottom;
+        text-align: center;
+        width: 100%;
+      }
     }
   }
 
@@ -21,6 +36,15 @@
     background: #fff;
     border-radius: 2px;
     color: #000;
-    margin-bottom: 10px;
+    margin-bottom: $margin-bottom;
+
+    @include media($landscape) {
+      @include span-columns(2);
+      @include type-omega(2n);
+    }
+
+    @include media($portrait) {
+      @include span-columns(4);
+    }
   }
 }

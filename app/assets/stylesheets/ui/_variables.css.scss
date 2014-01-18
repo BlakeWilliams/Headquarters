@@ -8,6 +8,16 @@ $purple:  #9258e2 !default;
 $red:     #dc6b6b !default;
 $yellow:  #f3be74 !default;
 
+// Responsive help
+$mobile-size: 768px;
+$portrait-size: 340px;
+$landscape-size: 768px;
+
+// Breakpoints
+$mobile: new-breakpoint(max-width $mobile-size 4);
+$portrait: new-breakpoint(max-width $portrait-size 4);
+$landscape : new-breakpoint(min-width $portrait-size max-width $landscape-size 4);
+
 
 @mixin box {
   border-radius: 5px;

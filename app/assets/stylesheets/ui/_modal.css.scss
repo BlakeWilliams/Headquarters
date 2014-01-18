@@ -1,3 +1,17 @@
+.modal-wrapper {
+  @include media($mobile) {
+    overflow: scroll;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 10001;
+  }
+}
+
 .modal {
   background: #fff;
   border: 1px solid #eee;
@@ -56,6 +70,19 @@
         margin-top: 0;
       }
     }
+  }
+
+  @include media($mobile) {
+    $padding: 10px;
+
+    box-sizing: border-box;
+    margin: 2% 2%;
+    overflow: hidden;
+    position: relative;
+    width: 96%;
+
+    left: auto;
+    right: auto;
   }
 }
 
