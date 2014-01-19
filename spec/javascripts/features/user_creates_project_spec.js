@@ -1,34 +1,16 @@
 describe('User creates a project', function() {
-  var store;
-
-  beforeEach(function(done) {
-    store = App.Store.create();
-    App.reset();
-
-    Ember.run.next(function() {
-      done();
-    });
-  });
-
   it('saves the project', function(done) {
-    visit('/');
-
-    var count;
-    andThen(function() {
+    visit('/').then(function() {
       count = find('.project').length;
-    });
+      return click('#new-project');
+    }).then(function() {
+      fillIn('.title', 'Awesome Project');
+      fillIn('.description', 'Awesome description');
 
-    click('#new-project');
-
-    fillIn('.title', 'Awesome Project');
-    fillIn('.description', 'Awesome description');
-
-    click('#save');
-
-    andThen(function() {
+      return click('#save');
+    }).then(function() {
       var newCount = find('.project').length;
       expect(newCount).toBe(count + 1);
-
       done()
     });
   });

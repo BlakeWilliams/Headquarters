@@ -1,0 +1,12 @@
+#issues {
+  border-radius: 5px;
+
+  .issue {
+    background: $background;
+    border-bottom: 1px solid $border-color;
+    color: #4a4a4a;
+    display: block;
+    padding: ($padding * 1.5) $padding;
+    text-decoration: none;
+  }
+}

@@ -1,1 +1,11 @@
-<h1>{{name}}</h1>
+<div id="project">
+  <h1>{{name}}</h1>
+
+  {{render "project/new_issue"}}
+
+  <div id="issues">
+    {{#each issue in issues}}
+      {{render "project/issue" issue}}
+    {{/each}}
+  </div>
+</div>

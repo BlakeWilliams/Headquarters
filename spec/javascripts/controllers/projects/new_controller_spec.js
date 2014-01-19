@@ -2,7 +2,7 @@ describe('App.ProjectsNewController', function() {
   var controller;
 
   beforeEach(function() {
-    controller = App.ProjectsNewController.create();
+    controller = App.__container__.lookup('controller:projects_new');
   });
 
   describe('#save', function() {
@@ -24,16 +24,19 @@ describe('App.ProjectsNewController', function() {
       expect(record.one).toHaveBeenCalled();
     });
 
-    it('creates the record with the right properties', function() {
+    it('creates the record with the right properties', function(done) {
       properties = {
         name: 'test',
         description: 'test desc',
       }
 
-      controller.setProperties(properties);
-      controller.send('save');
+      Ember.run(function() {
+        controller.setProperties(properties);
+        controller.send('save');
+        expect(store.createRecord).toHaveBeenCalledWith('project', properties);
+        done();
+      });
 
-      expect(store.createRecord).toHaveBeenCalledWith('project', properties);
     });
   });
 

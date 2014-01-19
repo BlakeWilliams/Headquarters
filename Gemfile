@@ -6,7 +6,7 @@ gem 'neat'
 
 
 gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'ember-data-source', '~> 1.0.0.beta4'
+gem 'ember-data-source', '~> 1.0.0.beta5'
 gem 'ember-rails', '~> 0.14.1'
 gem 'ember-source', '~> 1.3.0'
 gem 'jquery-rails'

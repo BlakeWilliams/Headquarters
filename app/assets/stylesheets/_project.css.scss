@@ -1,0 +1,33 @@
+$background: #fcfcfc;
+$border-color: #ededed;
+$padding: 8px;
+
+#project {
+  #new-issue {
+    background: $background;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom: 1px solid darken($border-color, 2);
+    padding: $padding;
+    width: 100%;
+
+    input {
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
+
+  #issues {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    .issue {
+      background: $background;
+      border-bottom: 1px solid $border-color;
+      color: #4a4a4a;
+      display: block;
+      padding: ($padding * 1.5) $padding;
+      text-decoration: none;
+    }
+  }
+}
