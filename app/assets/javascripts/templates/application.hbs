@@ -1,7 +1,9 @@
 {{#unless loginLayout}}
   <header>
     <div class="container">
-      <h1>Headquarters</h1>
+      <h1>
+        {{link-to "Headquarters" "projects"}}
+      </h1>
 
       <nav>
         <img {{bind-attr src="App.currentUser.gravatar"}}>
