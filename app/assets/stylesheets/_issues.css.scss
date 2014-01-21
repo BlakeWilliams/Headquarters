@@ -8,5 +8,9 @@
     display: block;
     padding: ($padding * 1.5) $padding;
     text-decoration: none;
+
+    a {
+      color: $body-color;
+    }
   }
 }

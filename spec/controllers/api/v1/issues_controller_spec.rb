@@ -42,6 +42,37 @@ describe Api::V1::IssuesController do
     end
   end
 
+  describe 'GET #show' do
+    let!(:user) { login_user }
+
+    context 'with issue belonging to owned project' do
+      let(:project) { create(:project, user: user) }
+      let(:issue) { create(:issue, project: project) }
+
+      it 'responds success' do
+        get :show, id: issue.id
+
+        expect(response).to be_success
+      end
+
+      it 'assigns the issue' do
+        get :show, id: issue.id
+
+        expect(assigns(:issue)).to eq(issue)
+      end
+    end
+
+    context 'with issue belonging to unowned project' do
+      let(:issue) { create(:issue) }
+
+      it 'raises an exception' do
+        expect{
+          get :show, id: issue
+        }.to raise_error
+      end
+    end
+  end
+
   describe 'POST #create' do
     context 'with valid params' do
       let!(:user) { login_user }

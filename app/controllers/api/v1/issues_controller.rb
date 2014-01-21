@@ -4,6 +4,11 @@ class Api::V1::IssuesController < ApiController
     render json: @issues
   end
 
+  def show
+    @issue= current_user.issues.find(params[:id])
+    render json: @issue
+  end
+
   def create
     @issue = Issue.new(issue_params)
 
