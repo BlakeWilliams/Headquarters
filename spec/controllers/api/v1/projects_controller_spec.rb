@@ -75,4 +75,56 @@ j
       end
     end
   end
+
+  describe 'PUT #update' do
+    context 'with valid paramaters' do
+      let!(:user) { login_user }
+      let(:project) { create(:project) }
+
+      it 'responds success' do
+        put :update, id: project.id, project: { name: 'New Name' }
+
+        expect(response).to be_success
+      end
+
+      it 'updates the project' do
+        put :update, id: project.id, project: { name: 'New Name' }
+
+        expect(project.reload.name).to eq('New Name')
+      end
+    end
+
+    context 'with invalid paramaters' do
+      let!(:user) { login_user }
+      let(:project) { create(:project) }
+
+      it 'responds with 422' do
+        put :update, id: project.id, project: { name: '' }
+
+        expect(response.status).to be(422)
+      end
+
+      it 'renders json errors' do
+        put :update, id: project.id, project: { name: '' }
+
+        expect(json['errors']).not_to be_nil
+      end
+
+      it 'does not update the project' do
+        put :update, id: project.id, project: { name: '' }
+
+        expect(project.reload.name).not_to be('')
+      end
+
+      it 'renders json errors' do
+        put :update, id: project.id, project: { name: '' }
+
+        expect(json['errors']).not_to be_nil
+      end
+
+      it 'does not update the project' do
+      end
+    end
+
+  end
 end

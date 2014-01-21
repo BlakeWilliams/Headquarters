@@ -20,6 +20,16 @@ class Api::V1::ProjectsController < ApiController
     end
   end
 
+  def update
+    @project = Project.find(params[:id])
+
+    if @project.update_attributes(project_params)
+      render json: @project
+    else
+      render json: { errors: @project.errors.messages }, status: 422
+    end
+  end
+
   private
 
   def project_params

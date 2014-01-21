@@ -1,0 +1,11 @@
+{{#if editing}}
+  {{view textField value=value}}
+{{else}}
+  <span {{action "startEditing" on="doubleClick"}} {{bind-attr class="value::placeholder"}}>
+    {{#if value}}
+      {{value}}
+    {{else}}
+      {{yield}}
+    {{/if}}
+  </span>
+{{/if}}

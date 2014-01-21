@@ -1,0 +1,17 @@
+@mixin editable-text-field {
+  span {
+    display: inline-block;
+    margin-bottom: 2px;
+  }
+
+  input {
+    $color: lighten($body-color, 15);
+    background: none;
+    border: 0;
+    border-bottom: 1px dotted $color;
+    color: $color;
+    font-size: inherit;
+    margin-top: 0;
+    padding: 0;
+  }
+}

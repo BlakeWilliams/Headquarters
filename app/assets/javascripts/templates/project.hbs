@@ -1,5 +1,7 @@
 <div id="project">
-  <h1>{{name}}</h1>
+  <h1 id="title">
+    {{inline-edit value=name action="save"}}
+  </h1>
 
   {{render "project/new_issue"}}
 

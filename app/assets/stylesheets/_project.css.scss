@@ -3,6 +3,10 @@ $border-color: #ededed;
 $padding: 8px;
 
 #project {
+  #title {
+    @include editable-text-field;
+  }
+
   #new-issue {
     background: $background;
     border-top-left-radius: 3px;
