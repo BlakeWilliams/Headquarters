@@ -7,10 +7,14 @@ The back-end of Headquarters is a [Ruby on Rails](http://rubyonrails.org/) power
 Right now the application is very small and isn't ready for use. It's not feature complete yet and is still very flexible so if you have an idea please submit an issue.
 
 * Git clone this project
+* bundle install #http://bundler.io/
 * rake db:migrate to setup the database (sqlite for now, will migrate to postgres later on)
-* rake db:seed to setup a user, it will automatically create user@example.com and password for credentials.
+* rake db:seed to setup a user, it will automatically create a user with the following credentials:
+	email: 'user@example.com',
+    password: 'password'
 * Start the application with `rails s`
-* Visit localhost:3000 in your browser and log in.
+* Visit http://localhost:3000/#/login in your browser and log in.
+* At present, there is no redirect after you've submitted your log in creds. However, if you now navigate to: http://localhost:3000/# you should see the home page.
 
 ## Contributing
 
