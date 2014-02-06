@@ -19,6 +19,16 @@ class Api::V1::IssuesController < ApiController
     end
   end
 
+  def update
+    @issue = Issue.find(params[:id])
+
+    if @issue.update_attributes(issue_params)
+      render json: @issue
+    else
+      render json: { errors: @issue.errors.messages }, status: 422
+    end
+  end
+
   private
 
   def issue_params

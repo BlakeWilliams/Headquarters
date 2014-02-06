@@ -7,7 +7,7 @@ App.InlineEditComponent = Ember.Component.extend({
     },
   },
 
-  textField: Ember.TextField.extend({
+  textField: Ember.TextArea.extend({
     initialValue: '',
 
     didInsertElement: function() {
@@ -22,8 +22,9 @@ App.InlineEditComponent = Ember.Component.extend({
     },
 
     keyUp: function(e) {
-      if (e.which == 13) {
+      if (e.which == 13 && e.shiftKey == false) {
         this.get('parentView').sendAction();
+        console.log(e);
         this.focusOut();
       } else if (e.which == 27) {
         this.set('value', this.get('initialValue'));

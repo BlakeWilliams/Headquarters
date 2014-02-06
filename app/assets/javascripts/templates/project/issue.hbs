@@ -1,5 +1,16 @@
-<div class="issue">
-  {{#link-to "issue" this}}
-    {{name}}
-  {{/link-to}}
+<div id="issue" class="modal">
+  <div class="header">
+    <h3 id="title">
+      {{inline-edit value=name action="save"}}
+    </h3>
+    <div {{action "close"}} class="close"><i class="fa fa-times"></i></div>
+  </div>
+
+  <div class="body">
+    <div class="description">
+      {{inline-edit value=description action="save" placeholder="Double click to add a description"}}
+    </div>
+  </div>
 </div>
+
+<div {{action "close"}} class="modal-backdrop"></div>

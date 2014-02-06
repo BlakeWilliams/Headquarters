@@ -1,0 +1,15 @@
+#issue {
+  $width: 800px;
+
+  margin-left: -($width / 2);
+  top: 35px;
+  width: $width;
+
+  #title {
+    margin-top: 0;
+  }
+
+  .body {
+    clear: both;
+  }
+}

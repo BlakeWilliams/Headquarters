@@ -12,7 +12,6 @@ describe('App.ProjectNewIssueController', function() {
     issue = jasmine.createSpyObj('record', ['one', 'save']);
     spyOn(store, 'createRecord').and.returnValue(issue);
     controller.set('store', store);
-
   });
 
   describe('#save', function() {

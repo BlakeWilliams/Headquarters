@@ -7,7 +7,9 @@
 
   <div id="issues">
     {{#each issue in issues}}
-      {{render "project/issue" issue}}
+      {{render "project/inline_issue" issue}}
     {{/each}}
   </div>
 </div>
+
+{{outlet}}

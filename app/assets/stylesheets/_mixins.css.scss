@@ -4,8 +4,9 @@
     margin-bottom: 2px;
   }
 
-  input {
+  textarea {
     $color: lighten($body-color, 15);
+
     background: none;
     border: 0;
     border-bottom: 1px dotted $color;
@@ -13,5 +14,6 @@
     font-size: inherit;
     margin-top: 0;
     padding: 0;
+    width: 100%;
   }
 }
