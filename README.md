@@ -11,10 +11,10 @@ Right now the application is very small and isn't ready for use. It's not featur
 * rake db:migrate to setup the database (sqlite for now, will migrate to postgres later on)
 * rake db:seed to setup a user, it will automatically create a user with the following credentials:
 	email: 'user@example.com',
-    password: 'password'
+	password: 'password'
 * Start the application with `rails s`
 * Visit http://localhost:3000/#/login in your browser and log in.
-* At present, there is no redirect after you've submitted your log in creds. However, if you now navigate to: http://localhost:3000/# you should see the home page.
+* On correct login, you will be redirected to the main projects page.
 
 ## Contributing
 
