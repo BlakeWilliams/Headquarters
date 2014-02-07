@@ -14,7 +14,7 @@ describe('App.LoginRoute', function() {
   });
 
   it("sets loginLayout on applicationController on activate", function() {
-    route.activate(); 
+    route.activate();
     expect(controller.set).toHaveBeenCalledWith('loginLayout', true);
   });
 
