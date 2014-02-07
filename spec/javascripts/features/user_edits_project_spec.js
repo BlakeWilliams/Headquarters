@@ -1,4 +1,7 @@
 describe('User edits a project', function() {
+  beforeEach(function() {
+    spyOn(App, 'isLoggedIn').and.returnValue(true);
+  });
   describe('title', function() {
     it('updates the title', function(done) {
       visit('/projects/1').then(function() {
