@@ -3,9 +3,6 @@ describe('User creates a project', function() {
   beforeEach(function() {
     spyOn(App, 'isAuthenticated').and.returnValue(true);
   });
-  afterEach(function() {
-    App.revokeToken();
-  });
 
   it('saves the project', function(done) {
     visit('/').then(function() {

@@ -3,9 +3,6 @@ describe('User closes issue modal', function() {
   beforeEach(function() {
     spyOn(App, 'isAuthenticated').and.returnValue(true);
   });
-  afterEach(function() {
-    App.revokeToken();
-  });
 
   describe('when using the close button', function() {
     it('redirects to the project', function(done) {

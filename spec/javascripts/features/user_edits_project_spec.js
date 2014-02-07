@@ -3,9 +3,6 @@ describe('User edits a project', function() {
   beforeEach(function() {
     spyOn(App, 'isAuthenticated').and.returnValue(true);
   });
-  afterEach(function() {
-    App.revokeToken();
-  });
 
   describe('title', function() {
     it('updates the title', function(done) {
