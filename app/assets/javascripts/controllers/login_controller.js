@@ -7,8 +7,18 @@ App.LoginController = Ember.Controller.extend({
     success: function(data) {
       var router = this.get('target'),
         token = data.token;
+
       App.setToken(token);
-      router.transitionTo('projects');
+
+      //Check if there's a previously tried transition; if so,
+      //retry that route, otherwise go to main projects page.
+      var previousTransition = this.get('previousTransition');
+      if (previousTransition) {
+        this.set('previousTransition', null);
+        previousTransition.retry();
+      } else {
+        router.transitionTo('projects');
+      }
     },
     fail: function(xhr, status, errThrown) {
       //No-op

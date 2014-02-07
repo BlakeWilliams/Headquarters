@@ -1,4 +1,9 @@
 describe('User creates an issue', function() {
+
+  beforeEach(function() {
+    spyOn(App, 'isAuthenticated').and.returnValue(true);
+  });
+
   it('saves the issue', function(done) {
     visit('/projects/1').then(function(x) {
       count = find('.issue').length;

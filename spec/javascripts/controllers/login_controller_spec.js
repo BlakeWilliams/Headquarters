@@ -1,6 +1,6 @@
 describe('App.LoginController', function() {
   var controller, route, response, failResponse, expectedToken;
-  
+
   beforeEach(function() {
     expectedToken = 'testtoken';
     controller = App.LoginController.create();
@@ -34,6 +34,28 @@ describe('App.LoginController', function() {
     controller.send('login');
 
     expect(App.get('token')).toBe(expectedToken);
+  });
+
+  it('retries if previous transition', function() {
+    var callbacks = controller.get('callbacks');
+    var previousTransition = {retry: $.noop};
+    spyOn(previousTransition, 'retry');
+
+    controller.set('previousTransition', previousTransition);
+
+    callbacks.success.call(controller, {token: 'doesnt_matter'});
+    expect(previousTransition.retry).toHaveBeenCalled();
+  });
+
+  it('login redirect to normal main page when no previous transition', function() {
+    var callbacks = controller.get('callbacks');
+    controller.set('previousTransition', undefined);
+    var router = controller.get('target');
+    spyOn(router, 'transitionTo');
+
+    callbacks.success.call(controller, {token: 'doesnt_matter'});
+
+    expect(router.transitionTo).toHaveBeenCalledWith('projects');
   });
 
   it('calls success helper on valid login', function() {

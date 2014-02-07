@@ -1,5 +1,5 @@
-App.ProjectsRoute = Ember.Route.extend({
+App.ProjectsRoute = App.AuthenticationRoute.extend({
   model: function() {
     return this.store.findAll('project');
-  },
+  }
 });
