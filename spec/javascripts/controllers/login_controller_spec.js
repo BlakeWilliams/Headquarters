@@ -1,6 +1,6 @@
 describe('App.LoginController', function() {
   var controller, route, response, failResponse, expectedToken;
-  
+
   beforeEach(function() {
     expectedToken = 'testtoken';
     controller = App.LoginController.create();

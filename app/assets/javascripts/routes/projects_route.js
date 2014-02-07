@@ -1,5 +1,7 @@
 App.ProjectsRoute = Ember.Route.extend({
   model: function() {
-    return this.store.findAll('project');
-  },
+    if (App.isLoggedIn(this)) {
+      return this.store.findAll('project');
+    }
+  }
 });

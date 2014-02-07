@@ -1,5 +1,9 @@
 describe('User closes issue modal', function() {
 
+  beforeEach(function() {
+    spyOn(App, 'isLoggedIn').and.returnValue(true);
+  });
+
   describe('when using the close button', function() {
     it('redirects to the project', function(done) {
       visit('/projects/1/issues/1').then(function() {

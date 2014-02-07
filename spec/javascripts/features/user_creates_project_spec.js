@@ -1,4 +1,9 @@
 describe('User creates a project', function() {
+
+  beforeEach(function() {
+    spyOn(App, 'isLoggedIn').and.returnValue(true);
+  });
+
   it('saves the project', function(done) {
     visit('/').then(function() {
       count = find('.project').length;
