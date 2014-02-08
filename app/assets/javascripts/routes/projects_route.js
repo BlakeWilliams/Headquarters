@@ -1,4 +1,4 @@
-App.ProjectsRoute = App.AuthenticationRoute.extend({
+App.ProjectsRoute = App.AuthenticatedRoute.extend({
   model: function() {
     return this.store.findAll('project');
   }

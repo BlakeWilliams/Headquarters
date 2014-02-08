@@ -21,7 +21,6 @@ App = Ember.Application.create({
     this.get('storage').token = token;
   },
 
-  //Revokes user's token setting both store and `App.token` null
   revokeToken: function() {
     App.get('storage').token = null;
     App.set('token', null);
