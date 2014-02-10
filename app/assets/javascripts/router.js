@@ -7,4 +7,5 @@ App.Router.map(function() {
     this.route('issue', { path: '/issues/:issue_id' })
   });
   this.route('login');
+  this.route('logout');
 });
