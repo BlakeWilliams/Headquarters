@@ -14,7 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-bin
+/bin
 
 # Ignore simplecov coverage
 coverage

@@ -11,6 +11,17 @@
       {{inline-edit value=description action="save" placeholder="Double click to add a description"}}
     </div>
   </div>
+
+  <div class="sidebar">
+    <a {{action "toggleClosed"}} {{bind-attr class=":btn closed:red:green"}}>
+      <i {{bind-attr class=":fa closed:fa-square:fa-check-square"}}></i>
+      {{#if closed}}
+        Closed
+      {{else}}
+        Open
+      {{/if}}
+    </a>
+  </div>
 </div>
 
 <div {{action "close"}} class="modal-backdrop"></div>

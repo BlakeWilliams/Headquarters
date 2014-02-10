@@ -5,15 +5,43 @@ describe('App.ProjectIssueController', function() {
     var container = App.__container__;
     controller = container.lookup('controller:project.issue');
 
-    mockIssue = {
+    mockIssue = Ember.Object.create({
       save: function() {},
       project: Ember.Object.create(),
-    };
+    });
 
-    console.log(mockIssue.save);
     spyOn(mockIssue, 'save');
     controller.set('content', mockIssue);
   });
+
+  describe('#toggleClosed', function() {
+    it('triggers save', function() {
+      spyOn(controller._actions, 'save');
+
+      controller.send('toggleClosed');
+
+      expect(controller._actions.save).toHaveBeenCalled();
+    });
+
+    describe('when closed is false', function() {
+      it('sets closed to true', function() {
+        controller.set('closed', false);
+
+        controller.send('toggleClosed');
+
+        expect(mockIssue.get('closed')).toBe(true);
+      });
+    });
+
+    describe('when closed is true', function() {
+      it('sets closed to true', function() {
+        controller.set('closed', true);
+        controller.send('toggleClosed');
+
+        expect(mockIssue.get('closed')).toBe(false);
+      });
+    });
+  }),
 
   describe('#save', function() {
     it('saves the issue', function() {

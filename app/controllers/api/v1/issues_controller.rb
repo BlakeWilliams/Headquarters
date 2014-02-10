@@ -5,7 +5,7 @@ class Api::V1::IssuesController < ApiController
   end
 
   def show
-    @issue= current_user.issues.find(params[:id])
+    @issue = current_user.issues.find(params[:id])
     render json: @issue
   end
 
@@ -32,6 +32,6 @@ class Api::V1::IssuesController < ApiController
   private
 
   def issue_params
-    params.require(:issue).permit(:name, :description, :project_id)
+    params.require(:issue).permit(:name, :description, :project_id, :closed)
   end
 end

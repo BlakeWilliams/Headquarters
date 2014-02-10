@@ -11,5 +11,21 @@
 
   .body {
     clear: both;
+    float: left;
+    width: 83%;
+  }
+
+  .sidebar {
+    float: right;
+    width: 15%;
+
+    .btn {
+      font-size: 14px;
+      margin-bottom: 10px;
+      margin-top: 0;
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+    }
   }
 }
