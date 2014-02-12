@@ -1,7 +1,4 @@
 App.LoginController = Ember.Controller.extend({
-  email: null,
-  password: null,
-
   callbacks: {
     success: function(data) {
       var router = this.get('target'),
@@ -21,17 +18,17 @@ App.LoginController = Ember.Controller.extend({
       //No-op
       //TODO: Display error message(s). Holding off...need
       //feedback from Blake on how we prefer validation UIUX to work
-    },
+    }
   },
   actions: {
-    login: function() {
+    submit: function() {
       var self = this;
       var session = $.ajax({
         url: App.get('apiPath') + '/sessions',
         type: 'POST',
         data: {
-          email: this.get('email'),
-          password: this.get('password'),
+          email: self.get('content').email,
+          password: self.get('content').password
         }
       });
       session.then(function(data) {
@@ -41,5 +38,5 @@ App.LoginController = Ember.Controller.extend({
         self.callbacks.fail.call(self, xhr, status, errThrown);
       });
     }
-  },
+  }
 });

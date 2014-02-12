@@ -6,19 +6,24 @@ describe('App.LoginController', function() {
     controller = App.LoginController.create();
     route = App.LoginRoute.create();
     controller.set('target', route);
-    response =  {
-      then: function(cb) {
-        cb.call(this, {token: expectedToken});
-      },
-      fail: $.noop
-    };
 
-    failResponse =  {
-      then: $.noop,
-      fail: function(cb) {
-        cb.call(this, null, 'error', 'Unauthorized')
-      }
-    };
+    Ember.run(function() {
+      var model = App.LoginUser.create();
+      controller.set('model', model);
+      response =  {
+        then: function(cb) {
+          cb.call(this, {token: expectedToken});
+        },
+        fail: $.noop
+      };
+
+      failResponse =  {
+        then: $.noop,
+        fail: function(cb) {
+          cb.call(this, null, 'error', 'Unauthorized')
+        }
+      };
+    });
   });
 
   afterEach(function() {
@@ -31,7 +36,7 @@ describe('App.LoginController', function() {
     spyOn(route, 'transitionTo');
     spyOn($, 'ajax').and.returnValue(response);
 
-    controller.send('login');
+    controller.send('submit');
 
     expect(App.get('token')).toBe(expectedToken);
   });
@@ -64,7 +69,7 @@ describe('App.LoginController', function() {
 
     spyOn($, 'ajax').and.returnValue(response);
 
-    controller.send('login');
+    controller.send('submit');
 
     expect(callbacks.success).toHaveBeenCalled();
   });
@@ -85,7 +90,7 @@ describe('App.LoginController', function() {
 
     spyOn($, 'ajax').and.returnValue(failResponse);
 
-    controller.send('login');
+    controller.send('submit');
 
     expect(callbacks.fail).toHaveBeenCalled();
   });

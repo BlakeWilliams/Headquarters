@@ -4,6 +4,8 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require ember-validations
+//= require ember-easyForm
 //= require_self
 //= require app
 //= require_tree .
