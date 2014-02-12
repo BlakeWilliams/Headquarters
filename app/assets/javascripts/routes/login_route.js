@@ -5,5 +5,10 @@ App.LoginRoute = Ember.Route.extend({
 
   deactivate: function() {
     this.controllerFor('application').set('loginLayout', false);
+  },
+
+  model: function() {
+    return App.LoginUser.create();
   }
+
 });

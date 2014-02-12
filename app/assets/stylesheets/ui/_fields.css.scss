@@ -1,5 +1,6 @@
 textarea,
 input[type="text"],
+input[type="email"],
 input[type="password"] {
   $border-color: #dfdfdf;
 
@@ -20,6 +21,8 @@ input[type="password"] {
 
   &.error {
     textarea,
+    input[type="email"],
+    input[type="password"],
     input[type="text"] {
       border: #e74c3c !important;
     }
@@ -41,11 +44,27 @@ input[type="submit"] {
 .field {
   margin-bottom: 10px;
 
+  label {
+    position: absolute;
+    left: -999em;
+  }
+  .hint {
+    display: none;
+  }
+  .fieldWithErrors,
   &.error {
     textarea,
+    input[type="email"],
+    input[type="password"],
     input[type="text"] {
       border-color: #e74c3c !important;
     }
+  }
+
+  span.error {
+    background: transparent;
+    color: $red;
+    display: block;
   }
 }
 
